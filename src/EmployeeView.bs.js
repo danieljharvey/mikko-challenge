@@ -18,7 +18,7 @@ function make(employee, _) {
           /* willUpdate */component[/* willUpdate */7],
           /* shouldUpdate */component[/* shouldUpdate */8],
           /* render */(function () {
-              return React.createElement("div", undefined, employee[/* name */0]);
+              return React.createElement("div", undefined, React.createElement("h1", undefined, "Employee Record"), React.createElement("p", undefined, employee[/* name */0]));
             }),
           /* initialState */component[/* initialState */10],
           /* retainedProps */component[/* retainedProps */11],
