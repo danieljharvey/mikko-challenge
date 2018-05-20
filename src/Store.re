@@ -3,6 +3,8 @@ type actions =
 
 type state = {employee: Employee.employee};
 
+let updateEmployeeName = (send, name) => send(ChangeName(name));
+
 let component = ReasonReact.reducerComponent("Store");
 
 let make = _children => {
@@ -16,5 +18,11 @@ let make = _children => {
                                 },
                               })
     },
-  render: self => <EmployeeView employee=self.state.employee />,
+  render: self =>
+    <EmployeeView
+      updateEmployeeName=(
+        newName => self.ReasonReact.send(ChangeName(newName))
+      )
+      employee=self.state.employee
+    />,
 };
