@@ -2,9 +2,14 @@
 'use strict';
 
 var Block = require("bs-platform/lib/js/block.js");
+var Curry = require("bs-platform/lib/js/curry.js");
 var ReasonReact = require("reason-react/src/ReasonReact.js");
 var Employee$ReactTemplate = require("./domain/Employee.bs.js");
 var EmployeeView$ReactTemplate = require("./EmployeeView.bs.js");
+
+function updateEmployeeName(send, name) {
+  return Curry._1(send, /* ChangeName */[name]);
+}
 
 var component = ReasonReact.reducerComponent("Store");
 
@@ -20,7 +25,9 @@ function make() {
           /* willUpdate */component[/* willUpdate */7],
           /* shouldUpdate */component[/* shouldUpdate */8],
           /* render */(function (self) {
-              return ReasonReact.element(/* None */0, /* None */0, EmployeeView$ReactTemplate.make(self[/* state */1][/* employee */0], /* array */[]));
+              return ReasonReact.element(/* None */0, /* None */0, EmployeeView$ReactTemplate.make(self[/* state */1][/* employee */0], (function (newName) {
+                                return Curry._1(self[/* send */3], /* ChangeName */[newName]);
+                              }), /* array */[]));
             }),
           /* initialState */(function () {
               return /* record */[/* employee */Employee$ReactTemplate.defaultEmployee];
@@ -34,6 +41,7 @@ function make() {
         ];
 }
 
+exports.updateEmployeeName = updateEmployeeName;
 exports.component = component;
 exports.make = make;
 /* component Not a pure module */
