@@ -1,5 +1,7 @@
 # mikko-challenge
 
+Implementation of this test: https://gist.github.com/heikela/9105949272e169bf891a84af6c201afa
+
 ## Run Project
 
 ```sh
